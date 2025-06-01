@@ -1,0 +1,42 @@
+name: Gamerblue
+
+on:
+  schedule:
+    - cron: "0 7 * * *"
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - '**.md'
+      - '**.txt'
+      - '**.sh'
+      - '**.list'
+  workflow_dispatch:
+
+jobs: 
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Maximize build disk space (Only remove unwanted software)
+      uses: AdityaGarg8/remove-unwanted-software@v4.1
+      with:
+          remove-android: 'true'
+          remove-dotnet: 'true'
+          remove-haskell: 'true'
+          remove-codeql: 'true'
+          remove-docker-images: 'true'
+          remove-large-packages: 'true'
+          remove-cached-tools: 'true'
+          remove-swapfile: 'true'
+    - name: Checkout Push to Registry action
+      uses: actions/checkout@v4
+    - name: Build Image
+      shell: bash
+      run: podman build . -t ghcr.io/emblem-66/gamerblue:latest
+    - name: Login to ghcr.io
+      shell: bash
+      run: podman login ghcr.io -u emblem-66 -p ${{ secrets.GITHUB_TOKEN }}
+    - name: Push Image to ghcr.io
+      shell: bash
+      run: podman push ghcr.io/emblem-66/gamerblue:latest
+      
