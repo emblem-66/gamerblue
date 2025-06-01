@@ -1,0 +1,4 @@
+rpm-ostreed-automatic.timer
+flatpak-update.timer
+tailscaled.service
+sshd.service
