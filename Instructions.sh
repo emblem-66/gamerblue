@@ -37,7 +37,5 @@ dnf -y install mesa-freeworld
 
 rpm -qa | sort | grep kernel
 rpm -qa | sort | grep freeworld
-rpm -qa | sort | grep mutter
-rpm -qa | sort | grep kwin
 rpm -qa | sort | grep steam
 
