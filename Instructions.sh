@@ -30,6 +30,7 @@ curl -sSL https://raw.githubusercontent.com/emblem-66/gamerblue/refs/heads/main/
 #rm /etc/yum.repos.d/tailscale.repo
 
 dnf -y install steam
+dnf -y install mesa-freeworld
 
 # Check packages
 #curl -sSL https://raw.githubusercontent.com/emblem-66/gamerblue/refs/heads/main/.list | xargs -r rpm -qa | sort | grep
