@@ -15,7 +15,7 @@ curl -sSL https://raw.githubusercontent.com/emblem-66/gamerblue/refs/heads/main/
 curl -sSL https://raw.githubusercontent.com/emblem-66/gamerblue/refs/heads/main/dnf-copr.list | xargs -r dnf copr enable -y
 
 # DNF remove packages
-curl -sSL https://raw.githubusercontent.com/emblem-66/gamerblue/refs/heads/main/dnf-remove.list | xargs -r dnf remove -y
+#curl -sSL https://raw.githubusercontent.com/emblem-66/gamerblue/refs/heads/main/dnf-remove.list | xargs -r dnf remove -y
 
 # DNF install packages
 curl -sSL https://raw.githubusercontent.com/emblem-66/gamerblue/refs/heads/main/dnf-install.list | xargs -r dnf install -y
